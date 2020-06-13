@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/account-service/account-service.iml" filepath="$PROJECT_DIR$/account-service/account-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config-server/config-server.iml" filepath="$PROJECT_DIR$/config-server/config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config-server/employee-config-server.iml" filepath="$PROJECT_DIR$/config-server/employee-config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eureka-server/eureka-server.iml" filepath="$PROJECT_DIR$/eureka-server/eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exchangeRate/exchangeRate.iml" filepath="$PROJECT_DIR$/exchangeRate/exchangeRate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oauth-server/oauth-server.iml" filepath="$PROJECT_DIR$/oauth-server/oauth-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rate-service/rate-service.iml" filepath="$PROJECT_DIR$/rate-service/rate-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/account-service/springboot2-postgresql-jpa-hibernate-crud-example.iml" filepath="$PROJECT_DIR$/account-service/springboot2-postgresql-jpa-hibernate-crud-example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/transaction-service/transaction-service.iml" filepath="$PROJECT_DIR$/transaction-service/transaction-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/workspace-OZAN.iml" filepath="$PROJECT_DIR$/.idea/workspace-OZAN.iml" />
+    </modules>
+  </component>
+</project>

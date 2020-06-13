@@ -1,0 +1,62 @@
+spring:
+  application:
+    name: APIGateway
+  cloud:
+    gateway:
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedHeaders:
+              - content-type
+            allowedMethods:
+              - GET
+              - POST
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 700000
+
+ribbon:
+  ReadTimeout: 700000
+  ConnectTimeout: 700000
+
+zuul:
+  ignoredServices: '*'
+  host:
+    connect-timeout-millis: 700000
+    socket-timeout-millis: 700000
+
+
+  routes:
+    account-service:
+      path: /accounts/**
+      serviceId: account-service
+      stripPrefix: false
+      sensitiveHeaders:
+
+    rate-service:
+      path: /rates/**
+      serviceId: rate-service
+      stripPrefix: false
+      sensitiveHeaders:
+
+
+
+    transaction-service:
+      path: /transactions/**
+      serviceId:  transaction-service
+      stripPrefix: false
+      sensitiveHeaders:
+
+
+
+server:
+  port: 4000
+
+
+
