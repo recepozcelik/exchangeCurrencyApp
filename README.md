@@ -15,6 +15,8 @@ you wil have a demo account with predefined currency and debit. These are USD ac
 
 ![](UI2.png)
 ![](U3.png)
+
+Here I used reactive form validation pattern thanks to material design of Angular. All fields are required. You should enter amount greaten than 1, otherwise you face with validation error. And you should not buy currency type as your account type, otherwise you can face with validation error "You are not allowed to buy same currency. Please select different account"
 ![](UI1.png)
 
 
@@ -22,12 +24,12 @@ you wil have a demo account with predefined currency and debit. These are USD ac
 
 Application was built on three core microservices. All are independently deployable applications organized around specific business areas.
 
-##Account service
+## Account service
 Contains general user account logic and validation: items, savings and account settings. Below picture shows operations list accomplished by account-service. You can reach swagger UI of account service by clicking link http://localhost:5555/swagger-ui.html after running account-service. For storing accounts, h2 in-memory db is used. While application is starting, it creates demo account on memory by using data.sql file under resources folder.
 
 ![](account-swagger.png)
 
-##Rate service
+## Rate service
 Rate service is responsible for getting current exchange rates. You can reach swagger UI of rate service by clicking link http://localhost:4444/swagger-ui.html after running rate-service.
 
 ![](rate-swagger.png)
@@ -38,74 +40,52 @@ Transaction service is responsible for creating transaction according to user in
 ![](transaction-swagger.png)
 
 ## Config Server
-In this project, I used spring cloud config dependency for creating config server. I use native profile, which simply loads config files from the local classpath. You can see shared directory in Config service resources. Now, when rate-service requests its configuration, Config service responses with common-config/rate-service.properties.
+In this project, I used spring cloud config dependency for creating config server. I use native profile, which simply loads config files from the local classpath. You can see shared directory in Config service resources. Now, when rate-service requests its configuration, Config service responses with common-config/rate-service.properties. You can reach config server over http://localhost:8888
+
+## Eureka Server
+
+The other common and important pattern I used in that project is service registry. It allows automatic detection of network locations for service instances, which could have dynamically assigned addresses because of auto-scaling, failures and upgrades. I use Netflix Eureka in this project. Eureka is a good example of the client-side discovery pattern, when client is responsible for determining locations of available service instances (using Registry server) and load balancing requests across them. You can reach eureka server over http://localhost:8761/ and see registred services.
 
 
+![](eureka-UI.png)
 
-## Installation
+## API GATEWAY
 
-OS X & Linux:
+There are three core services, which expose external API to client. As you can see on below picture, gateway is the signle entry point to the system. It routes requests according to the route configuration(below figure) to appropirate microservice. I used netflix zuul for creating APIGateway. Its base URL is : http://localhost:4000/api/v1
 
-```sh
-npm install my-crazy-module --save
-```
+## Feign Client
 
-Windows:
+Another used pattern in project is Feign Client principles. I used feign client in transaction-service module for calling account-service and rate-serivce over proxy after buying operation. It seamlessly integrates with Ribbon and Hystrix. So I can update account data on accoun-serive module thanks to feign client. For feign client, i used spring cloud starter openfeign package. You can see on below picture AccountServiceProxy class, which is perfect example of usage of feign.
 
-```sh
-edit autoexec.bat
-```
 
-## Usage example
+![](feignClient-UI.png)
 
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
+## Distributed tracing
 
-_For more examples and usage, please refer to the [Wiki][wiki]._
+Spring Cloud Sleuth solves this problem by providing support for distributed tracing. It adds two types of IDs to the logging: traceId and spanId. 
 
-## Development setup
+## Security
+For security, i used spring-boot-starter-security package for permitting some paths of services and for preventing user from accessing some paths.
 
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
+## How to run all the things?
+After you clone project, you can do operation maven/install for dependency injection on modules. And then you can start spring boot applications by one by. Firstly, you should  start config-server, because other services need config server on starting proccess. Then secondly you can continue with starting eureka server.
 
-```sh
-make install
-npm test
-```
+1. Start Config Server
+2. Start Eureka Server
+3. Start Rate Service
+4. Start Account Service
+5. Start Transaction Service
+6. Start APIGateway
 
-## Release History
+## Important endpoints
+1. http://localhost:4000/api/v1 - Gateway
+2. http://localhost:8761 - Eureka Dashboard
 
-* 0.2.1
-    * CHANGE: Update docs (module code remains unchanged)
-* 0.2.0
-    * CHANGE: Remove `setDefaultXYZ()`
-    * ADD: Add `init()`
-* 0.1.1
-    * FIX: Crash when calling `baz()` (Thanks @GenerousContributorName!)
-* 0.1.0
-    * The first proper release
-    * CHANGE: Rename `foo()` to `bar()`
-* 0.0.1
-    * Work in progress
-
-## Meta
-
-Your Name – [@YourTwitter](https://twitter.com/dbader_org) – YourEmail@example.com
-
-Distributed under the XYZ license. See ``LICENSE`` for more information.
-
-[https://github.com/yourname/github-link](https://github.com/dbader/)
-
-## Contributing
-
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
-
-<!-- Markdown link & img dfn's -->
-[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/yourname/yourproject/wiki
+## ANGULAR PROJECT
+ First,you can run npm install command under foreign-exchange folder and then you can simply run ng serve command for starting  angular project. 
+ 
+ You can reach angular web project over http://localhost:4200/home
+ 
+ If port is busy on your local machine, you can change port by using --port attribute. It doesnt matter.
+ 
+ ## Thank you Guys
