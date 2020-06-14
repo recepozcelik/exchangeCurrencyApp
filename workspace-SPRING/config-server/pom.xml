@@ -16,6 +16,7 @@
         <groupId>com.assignment</groupId>
         <artifactId>exchangeRate</artifactId>
 		<version>1.0-SNAPSHOT</version>
+		<relativePath>../exchangeRate/pom.xml</relativePath>
 	</parent>
 
 
