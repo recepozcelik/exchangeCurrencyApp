@@ -22,20 +22,24 @@ you wil have a demo account with predefined currency and debit. These are USD ac
 
 Application was built on three core microservices. All are independently deployable applications organized around specific business areas.
 
-#### Account service
-Contains general user account logic and validation: items, savings and account settings. Below picture shows operations list accomplished by account-service. You can reach swagger UI of account service by clicking link http://localhost:5555/swagger-ui.html after running account-service.
+##Account service
+Contains general user account logic and validation: items, savings and account settings. Below picture shows operations list accomplished by account-service. You can reach swagger UI of account service by clicking link http://localhost:5555/swagger-ui.html after running account-service. For storing accounts, h2 in-memory db is used. While application is starting, it creates demo account on memory by using data.sql file under resources folder.
 
 ![](account-swagger.png)
 
-#### Rate service
+##Rate service
 Rate service is responsible for getting current exchange rates. You can reach swagger UI of rate service by clicking link http://localhost:4444/swagger-ui.html after running rate-service.
 
 ![](rate-swagger.png)
 
-#### Transaction service
+## Transaction service
 Transaction service is responsible for creating transaction according to user inputs. You can reach swagger UI of rate service by clicking link http://localhost:7777/swagger-ui.html after running transaction-service.
 
 ![](transaction-swagger.png)
+
+## Config Server
+In this project, I used spring cloud config dependency for creating config server. I use native profile, which simply loads config files from the local classpath. You can see shared directory in Config service resources. Now, when rate-service requests its configuration, Config service responses with common-config/rate-service.properties.
+
 
 
 ## Installation
