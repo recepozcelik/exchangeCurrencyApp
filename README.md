@@ -1,8 +1,7 @@
 # assignmentOZAN
 
 > 
-This is a demo project, which demonstrates Microservice Architecture Pattern and Single Page Application Basics  using Spring Boot, Spring Cloud and Angular.
-With a pretty good user interface, by the way.
+This is a demo project, which demonstrates Microservice Architecture Pattern and Single Page Application Basics  using Spring Boot, Spring Cloud and Angular. With a good user interface.
 
 ![Java Version](https://img.shields.io/badge/Java-1.8-brightgreen)
 ![Angular Version](https://img.shields.io/badge/Angular-7.2.16-red)
@@ -11,12 +10,12 @@ With a pretty good user interface, by the way.
 
 
 Application has 5 subsections, which are called by Home, Rates, Buy, Accounts and Transactions respectively. When application is first started, 
-you wil have a demo account with predefined currency and debit. These are USD account balanced with 100 credit and other is GBP account balanced with 80 credit.
+you wil have a demo account with predefined currency type and debit. These are USD account balanced with 100 credit and other is GBP account balanced with 80 credit.
 
 ![](UI2.png)
 ![](U3.png)
 
-Here I used reactive form validation pattern thanks to material design of Angular. All fields are required. You should enter amount greaten than 1, otherwise you face with validation error. And you should not buy currency type as your account type, otherwise you can face with validation error "You are not allowed to buy same currency. Please select different account"
+Here, I used reactive form validation pattern thanks to material design of Angular. All fields are required. You should enter amount greaten than 1, otherwise you face with validation error. And you should not buy currency type as same as your account type, otherwise you can face with validation error "You are not allowed to buy same currency. Please select different account". All currency rates are based on EUR. On "Buy" page, as user changes currency type, its rate is shown below the "currency select component". When user click "Get Quote" button, the total amount of transaction user need to pay is shown on a modal. If there is an exception like InsufficientBalance, error is shown on transaction screen.
 ![](UI1.png)
 
 
@@ -25,7 +24,7 @@ Here I used reactive form validation pattern thanks to material design of Angula
 Application was built on three core microservices. All are independently deployable applications organized around specific business areas.
 
 ## Account service
-Contains general user account logic and validation: items, savings and account settings. Below picture shows operations list accomplished by account-service. You can reach swagger UI of account service by clicking link http://localhost:5555/swagger-ui.html after running account-service. For storing accounts, h2 in-memory db is used. While application is starting, it creates demo account on memory by using data.sql file under resources folder.
+Contains general user account logic and validation: items, savings and account settings. Below figure shows operations list accomplished by account-service. You can reach swagger UI of account service by clicking link http://localhost:5555/swagger-ui.html after running account-service. For storing accounts, h2 in-memory db is used. While application is starting, it creates demo account on memory by using data.sql file under resources folder.
 
 ![](account-swagger.png)
 
@@ -40,7 +39,7 @@ Transaction service is responsible for creating transaction according to user in
 ![](transaction-swagger.png)
 
 ## Config Server
-In this project, I used spring cloud config dependency for creating config server. I use native profile, which simply loads config files from the local classpath. You can see shared directory in Config service resources. Now, when rate-service requests its configuration, Config service responses with common-config/rate-service.properties. You can reach config server over http://localhost:8888
+In this project, I used spring cloud config dependency for creating config server. I use native profile, which simply loads config files from the local classpath. You can see shared directory in Config service resources. Eg., when rate-service requests its configuration, Config service responses with common-config/rate-service.properties. You can reach config server over http://localhost:8888
 
 ## Eureka Server
 
@@ -71,7 +70,7 @@ For security, i used spring-boot-starter-security package for permitting some pa
 
 ## JAVA PROJECT
 
-After you clone project, open workspace-SPRING folder on Intellij. I added project structure figure below. You can do operation maven/install for dependency injection on parent exchangeRate project. Parent(exchangeRate) projects handle maven operation of sub modules . After maven operation is finished, then you can continue with starting spring boot applications by one by. Firstly, you should  start config-server, because other services need config server on starting proccess. Then secondly you can continue with starting eureka server...
+After you clone this project, open workspace-SPRING folder on Intellij. I added project structure figure below. You can do operation maven/install for dependency injection on parent exchangeRate project. Parent(exchangeRate) projects handle maven operation of sub modules . After maven operation is finished, then you can continue with starting spring boot applications by one by. Firstly, you should  start config-server, because other services need config server on starting proccess. Then secondly you can continue with starting eureka server...
 
 ![](root-UI.png)
 
