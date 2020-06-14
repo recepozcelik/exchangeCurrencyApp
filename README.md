@@ -15,6 +15,8 @@ you wil have a demo account with predefined currency and debit. These are USD ac
 
 ![](UI2.png)
 ![](U3.png)
+
+Here I used reactive form validation pattern thanks to material design of Angular. All fields are required. You should enter amount greaten than 1, otherwise you face with validation error. And you should not buy currency type as your account type, otherwise you can face with validation error "You are not allowed to buy same currency. Please select different account"
 ![](UI1.png)
 
 
