@@ -27,6 +27,16 @@ Contains general user account logic and validation: items, savings and account s
 
 ![](account-swagger.png)
 
+#### Rate service
+Rate service is responsible for getting current exchange rates. You can reach swagger UI of rate service by clicking link http://localhost:4444/swagger-ui.html after running rate-service.
+
+![](rate-swagger.png)
+
+#### Transaction service
+Transaction service is responsible for creating transaction according to user inputs. You can reach swagger UI of rate service by clicking link http://localhost:7777/swagger-ui.html after running transaction-service.
+
+![](transaction-swagger.png)
+
 
 ## Installation
 
