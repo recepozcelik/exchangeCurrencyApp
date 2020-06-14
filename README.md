@@ -1,4 +1,6 @@
 Berkay Işık, Istanbul TR
+Garanti BBVA Teknoloji
+Senior Full Stack Developer
 
 
 # assignmentOZAN
