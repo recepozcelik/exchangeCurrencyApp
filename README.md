@@ -78,8 +78,8 @@ After you clone project, you can do operation maven/install for dependency injec
 6. Start APIGateway
 
 ## Important endpoints
-1.http://localhost:4000/api/v1 - Gateway
-2.http://localhost:8761 - Eureka Dashboard
+1. http://localhost:4000/api/v1 - Gateway
+2. http://localhost:8761 - Eureka Dashboard
 
 ## ANGULAR PROJECT
  First,you can run npm install command under foreign-exchange folder and then you can simply run ng serve command for starting  angular project. 
@@ -88,4 +88,4 @@ After you clone project, you can do operation maven/install for dependency injec
  
  If port is busy on your local machine, you can change port by using --port attribute. It doesnt matter.
  
- ##Thank you
+ ## Thank you Guys
