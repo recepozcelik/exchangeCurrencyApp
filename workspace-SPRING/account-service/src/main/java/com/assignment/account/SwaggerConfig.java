@@ -19,7 +19,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
     @Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .select().apis(RequestHandlerSelectors.basePackage("ozan.challenge.workspace.accountservice"))
+                .select().apis(RequestHandlerSelectors.basePackage("com.assignment.account"))
                 .paths(regex("/accounts.*"))
                 .build();
 
