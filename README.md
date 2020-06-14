@@ -23,15 +23,9 @@ you wil have a demo account with predefined currency and debit. These are USD ac
 Application was built on three core microservices. All are independently deployable applications organized around specific business areas.
 
 #### Account service
-Contains general user account logic and validation: items, savings and account settings.
+Contains general user account logic and validation: items, savings and account settings. Below picture shows operations list accomplished by account-service. You can reach swagger UI of account service by clicking link http://localhost:5555/swagger-ui.html after running account-service.
 
-Method	| Path	| Description	| User authenticated	| Available from UI
-------------- | ------------------------- | ------------- |:-------------:|:----------------:|
-GET	| /accounts/{account}	| Get specified account data	|  | 	
-GET	| /accounts/current	| Get current account data	| × | ×
-GET	| /accounts/demo	| Get demo account data (pre-filled incomes/expenses items, etc)	|   | 	×
-PUT	| /accounts/current	| Save current account data	| × | ×
-POST	| /accounts/	| Register new account	|   | ×
+![](account-swagger.png)
 
 
 ## Installation
