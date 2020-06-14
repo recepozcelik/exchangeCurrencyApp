@@ -68,7 +68,12 @@ Spring Cloud Sleuth solves this problem by providing support for distributed tra
 For security, i used spring-boot-starter-security package for permitting some paths of services and for preventing user from accessing some paths.
 
 ## How to run all the things?
-After you clone project, you can do operation maven/install for dependency injection on modules. And then you can start spring boot applications by one by. Firstly, you should  start config-server, because other services need config server on starting proccess. Then secondly you can continue with starting eureka server.
+
+## JAVA PROJECT
+
+After you clone project, open workspace-SPRING folder on Intellij. I added project structure figure below. you can do operation maven/install for dependency injection on parent exchangeRate project. Parent(exchangeRate) projects handle maven operation of sub modules . After maven operation is finished, then you can continue with starting spring boot applications by one by. Firstly, you should  start config-server, because other services need config server on starting proccess. Then secondly you can continue with starting eureka server...
+
+![](root-UI.png)
 
 1. Start Config Server
 2. Start Eureka Server
@@ -82,10 +87,11 @@ After you clone project, you can do operation maven/install for dependency injec
 2. http://localhost:8761 - Eureka Dashboard
 
 ## ANGULAR PROJECT
- First,you can run npm install command under foreign-exchange folder and then you can simply run ng serve command for starting  angular project. 
+ Firstly,you can run npm install command under workspace-NG/foreign-exchange folder. After npm install loaded required librarires, then you can continue with simply running ng serve command for starting  angular project. 
  
  You can reach angular web project over http://localhost:4200/home
  
  If port is busy on your local machine, you can change port by using --port attribute. It doesnt matter.
  
- ## Thank you Guys
+ ## Thank you Guys, If you get an error while trying to run project, don't hesitate to contact me
+ ## My mobile number : +905314561411
