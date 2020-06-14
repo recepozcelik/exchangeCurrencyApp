@@ -14,8 +14,25 @@ Application has 5 subsections, which are called by Home, Rates, Buy, Accounts an
 you wil have a demo account with predefined currency and debit. These are USD account balanced with 100 credit and other is GBP account balanced with 80 credit.
 
 ![](UI2.png)
-![](UI3.png)
+![](U3.png)
 ![](UI1.png)
+
+
+## Functional services
+
+Application was built on three core microservices. All are independently deployable applications organized around specific business areas.
+
+#### Account service
+Contains general user account logic and validation: items, savings and account settings.
+
+Method	| Path	| Description	| User authenticated	| Available from UI
+------------- | ------------------------- | ------------- |:-------------:|:----------------:|
+GET	| /accounts/{account}	| Get specified account data	|  | 	
+GET	| /accounts/current	| Get current account data	| × | ×
+GET	| /accounts/demo	| Get demo account data (pre-filled incomes/expenses items, etc)	|   | 	×
+PUT	| /accounts/current	| Save current account data	| × | ×
+POST	| /accounts/	| Register new account	|   | ×
+
 
 ## Installation
 
