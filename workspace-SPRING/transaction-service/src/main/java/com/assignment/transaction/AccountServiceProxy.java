@@ -10,7 +10,6 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
-import static org.springframework.http.ResponseEntity.ok;
 
 @FeignClient(name="account-service")
 public interface AccountServiceProxy {
