@@ -6,7 +6,7 @@ Senior Full Stack Developer. <br>
 # assignmentOZAN
 
 > 
-This is a demo project, which demonstrates Microservice Architecture Pattern and Single Page Application Basics  using Spring Boot, Spring Cloud and Angular. With a good and pretty user interface.
+This is a demo project, which demonstrates Microservice Architecture Pattern and Single Page Application Basics  using Spring Boot, Spring Cloud ,Angular and Bootstrap. With a good and pretty user interface.
 
 ![Java Version](https://img.shields.io/badge/Java-1.8-brightgreen)
 ![Angular Version](https://img.shields.io/badge/Angular-7.2.16-red)
@@ -20,7 +20,7 @@ you wil have a demo account with predefined currency type and debit. These are U
 ![](UI2.png)
 ![](U3.png)
 
-Here, I used reactive form validation pattern thanks to material design of Angular. All fields are required. You should enter amount greaten than 1, otherwise you face with validation error. And you should not buy currency type as same as your account type, otherwise you can face with validation error "You are not allowed to buy same currency. Please select different account". All currency rates are based on EUR. On "Buy" page, as user changes currency type, its rate is shown below the "currency select component". When user click "Get Quote" button, the total amount of transaction user need to pay is shown on a modal. If there is an exception like InsufficientBalance, error is shown on transaction screen.
+Here, I used reactive form validation pattern of Angular. All fields are required. You should enter amount greaten than 1, otherwise you face with validation error. And you should not buy currency type as same as your account type, otherwise you can face with validation error "You are not allowed to buy same currency. Please select different account". All currency rates are based on EUR. On "Buy" page, as user changes currency type, its rate is shown below the "currency select component". When user click "Get Quote" button, the total amount of transaction user need to pay is shown on a modal. If there is an exception like InsufficientBalance, error is shown on transaction screen.
 ![](UI1.png)
 
 
