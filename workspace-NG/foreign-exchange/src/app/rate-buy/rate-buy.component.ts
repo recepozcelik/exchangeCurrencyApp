@@ -5,9 +5,14 @@ import { TransactionService } from '../transaction.service';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { HttpErrorResponse } from '@angular/common/http';
-import { FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FormControl, FormBuilder } from '@angular/forms';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  ValidatorFn,
+  AbstractControl
+} from '@angular/forms';
 
 @Component({
   selector: 'app-rate-buy',
@@ -38,7 +43,6 @@ export class RateBuyComponent implements OnInit {
   ratio;
   willPay;
   showError = false;
-  sameCurrency = false;
 
   constructor(
     public rateService: RateService,
@@ -46,7 +50,35 @@ export class RateBuyComponent implements OnInit {
     public transactionService: TransactionService,
     private router: Router,
     private formBuilder: FormBuilder
-  ) {}
+  ) {
+    this.validatingForm = formBuilder.group(
+      {
+        min: [null, [Validators.required, Validators.min(1)]],
+        required: [null, Validators.required],
+        currency: [null, Validators.required],
+        account: [null, Validators.required]
+      },
+      { validator: this.CompareCurrency('currency', 'account') }
+    );
+  }
+
+  CompareCurrency(controlName: string, matchingControlName: string) {
+    return (formGroup: FormGroup) => {
+      const control = formGroup.controls[controlName];
+      const matchingControl = formGroup.controls[matchingControlName];
+
+      if (matchingControl.errors && matchingControl.errors.mustMatch) {
+        return null;
+      }
+
+      if (control.value === matchingControl.value) {
+        matchingControl.setErrors({ mustMatch: true });
+      } else {
+        matchingControl.setErrors(null);
+        return null;
+      }
+    };
+  }
 
   ngOnInit() {
     this.rateService.getRatesList().subscribe(rates => {
@@ -77,10 +109,8 @@ export class RateBuyComponent implements OnInit {
   }
 
   createTransaction() {
-    this.sameCurrency = false;
     this.showError = false;
     if (this.transaction.sourceType === this.transaction.targetType) {
-      this.sameCurrency = true;
       return;
     }
     this.transactionService
