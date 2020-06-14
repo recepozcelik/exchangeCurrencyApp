@@ -6,7 +6,7 @@ Senior Full Stack Developer. <br>
 # assignmentOZAN
 
 > 
-This is a demo project, which demonstrates Microservice Architecture Pattern and Single Page Application Basics  using Spring Boot, Spring Cloud and Angular. With a good user interface.
+This is a demo project, which demonstrates Microservice Architecture Pattern and Single Page Application Basics  using Spring Boot, Spring Cloud and Angular. With a good and pretty user interface.
 
 ![Java Version](https://img.shields.io/badge/Java-1.8-brightgreen)
 ![Angular Version](https://img.shields.io/badge/Angular-7.2.16-red)
