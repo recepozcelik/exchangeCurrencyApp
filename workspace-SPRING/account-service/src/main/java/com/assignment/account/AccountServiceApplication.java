@@ -1,4 +1,4 @@
-package com.berkayisik.assignment;
+package com.assignment.account;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

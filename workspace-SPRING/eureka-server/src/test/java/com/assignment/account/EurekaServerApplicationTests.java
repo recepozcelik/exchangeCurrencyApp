@@ -1,4 +1,4 @@
-package com.berkayisik.assignment;
+package com.assignment.account;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

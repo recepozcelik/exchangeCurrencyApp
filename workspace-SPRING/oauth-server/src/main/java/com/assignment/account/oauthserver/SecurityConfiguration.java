@@ -1,4 +1,4 @@
-package com.berkayisik.assignment.oauthserver;
+package com.assignment.account.oauthserver;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

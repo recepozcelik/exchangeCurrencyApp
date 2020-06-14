@@ -1,4 +1,4 @@
-package com.assignment.account.exception;
+package com.assignment.rate.exception;
 
 public class InvalidCurrencyException extends Exception {
 

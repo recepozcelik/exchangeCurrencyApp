@@ -1,8 +1,8 @@
-package com.assignment.account.transactionservice.service;
+package com.assignment.transaction.service;
 
-import com.assignment.account.transactionservice.entity.Rate;
-import com.assignment.account.transactionservice.exception.InsufficientBalanceException;
-import com.assignment.account.transactionservice.entity.Transaction;
+import com.assignment.transaction.model.Rate;
+import com.assignment.transaction.exception.InsufficientBalanceException;
+import com.assignment.transaction.model.Transaction;
 
 import java.util.List;
 

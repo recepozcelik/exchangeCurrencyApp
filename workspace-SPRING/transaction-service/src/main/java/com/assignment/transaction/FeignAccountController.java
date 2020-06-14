@@ -1,4 +1,4 @@
-package com.assignment.transaction.controller;
+package com.assignment.transaction;
 
 import com.assignment.transaction.AccountServiceProxy;
 import com.assignment.transaction.RateServiceProxy;
@@ -23,14 +23,14 @@ public class FeignAccountController {
     @Autowired
     RateServiceProxy rateServiceProxy;
 
-    @RequestMapping("/accounts/{accountType}")
+    @RequestMapping("/user/{accountType}")
     public  List<Account> getAccountByType(@PathVariable String accountType) {
 
         return accountServiceProxy.findByAccountType(accountType);
 
     }
 
-    @RequestMapping("/rates/{source}/{target}")
+    @RequestMapping("{source}/{target}")
     public List<Rate> getPairRate(@PathVariable(value = "source") String source, @PathVariable(value = "target") String target)
     {
         return rateServiceProxy.getPairRate(source,target);

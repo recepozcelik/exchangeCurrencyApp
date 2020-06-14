@@ -1,4 +1,4 @@
-package com.assignment.account.transactionservice;
+package com.assignment.transaction;
 
 
 import org.springframework.context.annotation.Bean;
@@ -18,7 +18,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
     @Bean
     public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .select().apis(RequestHandlerSelectors.basePackage("ozan.challenge.workspace.transactionservice"))
+                .select().apis(RequestHandlerSelectors.basePackage("ozan.challenge.workspace.transaction"))
                 .paths(regex("/transaction.*"))
                 .build();
 

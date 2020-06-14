@@ -3,15 +3,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>ozan.challenge.workspace</groupId>
-	<artifactId>account-service</artifactId>
+
+	<artifactId>account</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>account-service</name>
 	<description>Account Service</description>
 
 
 	<parent>
-		<groupId>ozan.challenge.workspace</groupId>
+		<groupId>com.assignment</groupId>
 		<artifactId>exchangeRate</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
@@ -76,6 +76,10 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>io.springfox</groupId>

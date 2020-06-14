@@ -6,13 +6,12 @@ import {
 } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  accountEndpoint = 'http://localhost:4000/accounts/account/';
-  accountType = 'http://localhost:4000/accounts/';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -28,12 +27,14 @@ export class AccountService {
 
   getAccountList(user): Observable<any> {
     return this.http
-      .get(this.accountEndpoint + user)
+      .get(`${environment.baseURL}/accounts/${user}`)
       .pipe(map(this.extractData));
   }
 
   getAccounDebit(type): Observable<any> {
-    return this.http.get(this.accountType + type).pipe(map(this.extractData));
+    return this.http
+      .get(`${environment.baseURL}/accounts/user/${type}`)
+      .pipe(map(this.extractData));
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

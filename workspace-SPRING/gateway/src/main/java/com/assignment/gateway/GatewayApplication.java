@@ -1,4 +1,4 @@
-package gateway.assignment.account.gateway;
+package com.assignment.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

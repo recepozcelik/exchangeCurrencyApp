@@ -8,8 +8,10 @@ import { RateListComponent } from './rate-list/rate-list.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { RateBuyComponent } from './rate-buy/rate-buy.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AccountListComponent } from './account-list/account-list.component';
+import { TransactionListComponent } from './transaction-list/transaction-list.component';
 
 @NgModule({
   declarations: [
@@ -18,9 +20,17 @@ import { HttpClientModule } from '@angular/common/http';
     RateListComponent,
     FooterComponent,
     HeaderComponent,
-    RateBuyComponent
+    RateBuyComponent,
+    AccountListComponent,
+    TransactionListComponent
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

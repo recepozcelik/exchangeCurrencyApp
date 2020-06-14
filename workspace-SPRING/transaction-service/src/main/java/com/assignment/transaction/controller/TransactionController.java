@@ -1,16 +1,16 @@
-package com.assignment.account.transactionservice.controller;
+package com.assignment.transaction.controller;
 
-import com.assignment.account.transactionservice.exception.InsufficientBalanceException;
+import com.assignment.transaction.exception.InsufficientBalanceException;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.assignment.account.transactionservice.entity.Account;
-import com.assignment.account.transactionservice.entity.Rate;
-import com.assignment.account.transactionservice.entity.Transaction;
-import com.assignment.account.transactionservice.proxy.AccountServiceProxy;
-import com.assignment.account.transactionservice.proxy.RateServiceProxy;
-import com.assignment.account.transactionservice.service.TransactionServiceImp;
+import com.assignment.transaction.model.Account;
+import com.assignment.transaction.model.Rate;
+import com.assignment.transaction.model.Transaction;
+import com.assignment.transaction.AccountServiceProxy;
+import com.assignment.transaction.RateServiceProxy;
+import com.assignment.transaction.service.TransactionServiceImp;
 
 import javax.validation.Valid;
 import java.math.BigDecimal;
@@ -21,7 +21,7 @@ import static org.springframework.http.ResponseEntity.ok;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-@RequestMapping("transaction")
+@RequestMapping("transactions")
 public class TransactionController {
 
     @Autowired
@@ -40,7 +40,7 @@ public class TransactionController {
     }
 
     @ApiOperation(value = "Get specific transaction history", response = Transaction.class)
-    @GetMapping("/{id}")
+    @GetMapping("id/{id}")
     public ResponseEntity<Transaction> findById(@PathVariable Long id) {
         return service.findById(id)
                 .map(record -> ok().body(record))
@@ -49,10 +49,9 @@ public class TransactionController {
 
     @ApiOperation(value = "Get transaction by user", response = Transaction.class)
     @GetMapping("/{user}")
-    public ResponseEntity<Transaction> findByUser(@PathVariable String user) {
-        return service.findByUser(user)
-                .map(record -> ok().body(record))
-                .orElse(ResponseEntity.notFound().build());
+    public List<Transaction> findByUser(@PathVariable String user) {
+        return service.findByUser(user);
+
     }
 
     @ApiOperation(value = "Create transaction", response = Transaction.class)
@@ -107,11 +106,14 @@ public class TransactionController {
                  newDestinationAccount.setUserName(entity.getUserName());
                  accountServiceProxy.create(newDestinationAccount);
 
+             }else
+             {
+                 destinationAccount.get(0).setDebit(destinationAccount.get(0).getDebit().add(
+                         entity.getTargetAmount()));
+                 accountServiceProxy.update(destinationAccount.get(0));
              }
 
-            //destinationAccount.get().setDebit(destinationAccount.get().getDebit().add(
-                 //entity.getTargetAmount()));
-          //accountServiceProxy.update(destinationAccount.get());
+
             ok(service.save(entity));
         }
         return entity;

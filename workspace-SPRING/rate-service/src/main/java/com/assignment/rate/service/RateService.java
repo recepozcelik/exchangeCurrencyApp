@@ -1,8 +1,8 @@
-package com.assignment.account.service;
+package com.assignment.rate.service;
 
-import com.assignment.account.exception.InvalidCurrencyException;
-import com.assignment.account.model.Rate;
-import com.assignment.account.model.RateList;
+import com.assignment.rate.exception.InvalidCurrencyException;
+import com.assignment.rate.model.Rate;
+import com.assignment.rate.model.RateList;
 
 import java.util.List;
 

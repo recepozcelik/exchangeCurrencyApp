@@ -1,4 +1,4 @@
-package com.berkayisik.assignment;
+package com.assignment.account;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -6,12 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="rate-service" />
         <module name="account-service" />
         <module name="eureka-server" />
         <module name="config-server" />
         <module name="transaction-service" />
         <module name="employee-config-server" />
+        <module name="rate-service" />
         <module name="gateway" />
         <module name="oauth-server" />
         <module name="springboot2-postgresql-jpa-hibernate-crud-example" />

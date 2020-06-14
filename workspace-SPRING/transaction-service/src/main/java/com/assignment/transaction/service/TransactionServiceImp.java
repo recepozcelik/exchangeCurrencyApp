@@ -1,11 +1,11 @@
-package com.assignment.account.transactionservice.service;
+package com.assignment.transaction.service;
 
-import com.assignment.account.transactionservice.entity.Rate;
-import com.assignment.account.transactionservice.exception.InsufficientBalanceException;
+import com.assignment.transaction.model.Rate;
+import com.assignment.transaction.exception.InsufficientBalanceException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.assignment.account.transactionservice.entity.Transaction;
+import com.assignment.transaction.model.Transaction;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -25,7 +25,7 @@ public class TransactionServiceImp implements TransactionInterface {
         return repository.findById(id);
     }
 
-    public Optional<Transaction> findByUser(String user) {
+    public List<Transaction> findByUser(String user) {
         return repository.findByUser(user);
     }
 

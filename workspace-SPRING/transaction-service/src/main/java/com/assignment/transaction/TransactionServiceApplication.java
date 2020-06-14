@@ -1,4 +1,4 @@
-package com.assignment.account.transactionservice;
+package com.assignment.transaction;
 
 
 import org.springframework.boot.SpringApplication;

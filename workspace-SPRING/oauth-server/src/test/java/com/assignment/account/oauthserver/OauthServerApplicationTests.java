@@ -1,4 +1,4 @@
-package com.berkayisik.assignment.oauthserver;
+package com.assignment.account.oauthserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

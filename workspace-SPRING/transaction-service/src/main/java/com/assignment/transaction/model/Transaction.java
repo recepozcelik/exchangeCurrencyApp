@@ -1,4 +1,4 @@
-package com.assignment.transaction.entity;
+package com.assignment.transaction.model;
 
 import javax.persistence.*;
 import lombok.*;

@@ -1,4 +1,4 @@
-package com.berkayisik.assignment;
+package com.assignment.account;
 
 
 import org.springframework.context.annotation.Bean;

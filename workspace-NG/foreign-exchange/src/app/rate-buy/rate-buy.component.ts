@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
+import { RateService } from '../rate.service';
 import { AccountService } from '../account.service';
+import { TransactionService } from '../transaction.service';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+import { HttpErrorResponse } from '@angular/common/http';
+import { FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { FormControl, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-rate-buy',
@@ -8,45 +15,59 @@ import { AccountService } from '../account.service';
   styleUrls: ['./rate-buy.component.css']
 })
 export class RateBuyComponent implements OnInit {
-  transaction: { id; sourceType; targetType; targetAmount } = {
+  validatingForm: FormGroup;
+  transaction: {
+    id;
+    userName;
+    sourceDebit;
+    sourceType;
+    targetType;
+    targetAmount;
+  } = {
     id: null,
+    userName: 'demo',
     sourceType: 'USD',
+    sourceDebit: 0,
     targetType: 'TRY',
     targetAmount: 0
   };
   rates;
-  debit;
   accounts;
   user;
   value;
   ratio;
   willPay;
+  showError = false;
+  sameCurrency = false;
 
   constructor(
-    public dataService: DataService,
-    public accountService: AccountService
+    public rateService: RateService,
+    public accountService: AccountService,
+    public transactionService: TransactionService,
+    private router: Router,
+    private formBuilder: FormBuilder
   ) {}
 
   ngOnInit() {
-    this.dataService.getRatesList().subscribe(rates => {
+    this.rateService.getRatesList().subscribe(rates => {
       this.rates = rates.rates;
     });
-    this.accountService.getAccountList('berkay').subscribe(account => {
+    this.accountService.getAccountList('demo').subscribe(account => {
       this.accounts = account;
     });
     this.accountService
       .getAccounDebit(this.transaction.sourceType)
       .subscribe(account => {
-        this.debit = account.debit;
+        this.transaction.sourceDebit = account[0].debit;
       });
-    this.dataService.getRate(this.transaction.targetType).subscribe(rate => {
+    this.rateService.getRate(this.transaction.targetType).subscribe(rate => {
       this.value = rate.value;
     });
   }
 
-  createTransaction() {
+  getQuote() {
     console.log(this.transaction);
-    this.dataService
+    this.rateService
       .getRatePair(this.transaction.sourceType, this.transaction.targetType)
       .subscribe(rates => {
         this.ratio = rates[0].value / rates[1].value;
@@ -55,8 +76,28 @@ export class RateBuyComponent implements OnInit {
       });
   }
 
+  createTransaction() {
+    this.sameCurrency = false;
+    this.showError = false;
+    if (this.transaction.sourceType === this.transaction.targetType) {
+      this.sameCurrency = true;
+      return;
+    }
+    this.transactionService
+      .createTransaction(this.transaction)
+      .pipe(catchError(this.handleError))
+      .subscribe(
+        rate => {
+          this.router.navigate(['/account-list', { id: rate }]);
+        },
+        err => {
+          this.showError = true;
+        }
+      );
+  }
+
   currencyChange() {
-    this.dataService.getRate(this.transaction.targetType).subscribe(rate => {
+    this.rateService.getRate(this.transaction.targetType).subscribe(rate => {
       this.value = rate.value;
     });
   }
@@ -65,7 +106,11 @@ export class RateBuyComponent implements OnInit {
     this.accountService
       .getAccounDebit(this.transaction.sourceType)
       .subscribe(account => {
-        this.debit = account.debit;
+        this.transaction.sourceDebit = account[0].debit;
       });
+  }
+
+  handleError(error: HttpErrorResponse) {
+    return throwError(error.message);
   }
 }

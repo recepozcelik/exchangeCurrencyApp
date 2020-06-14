@@ -1,4 +1,4 @@
-package com.assignment.account.transactionservice.exception;
+package com.assignment.transaction.exception;
 
 public class InsufficientBalanceException extends Exception {
 

@@ -1,4 +1,4 @@
-package com.assignment.account.model;
+package com.assignment.rate.model;
 
 import java.math.BigDecimal;
 

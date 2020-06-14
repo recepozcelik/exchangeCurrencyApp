@@ -1,4 +1,4 @@
-package com.berkayisik.assignment.gateway;
+package com.assignment.account.gateway;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.berkayisik.assignment;
+package com.assignment.account;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -29,7 +29,7 @@ public class AccountController {
     }
 
     @ApiOperation(value = "Get specific account type", response = Account.class)
-    @GetMapping("/{accountType}")
+    @GetMapping("user/{accountType}")
     public List<Account> findByAccountType(@PathVariable String accountType) {
         return service.findByAccountType(accountType);
 
@@ -43,7 +43,7 @@ public class AccountController {
 
 
     @ApiOperation(value = "Get user accounts", response = Account.class)
-    @GetMapping("account/{userName}")
+    @GetMapping("/{userName}")
     public List<Account> findByUser(@PathVariable String userName) {
         return service.findByUser(userName);
     }

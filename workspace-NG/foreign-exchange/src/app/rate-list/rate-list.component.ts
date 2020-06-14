@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
+import { RateService } from '../rate.service';
 
 @Component({
   selector: 'app-rate-list',
@@ -11,10 +11,10 @@ export class RateListComponent implements OnInit {
   base;
   date;
 
-  constructor(public dataService: DataService) {}
+  constructor(public rateService: RateService) {}
 
   ngOnInit() {
-    this.dataService.getRatesList().subscribe(rates => {
+    this.rateService.getRatesList().subscribe(rates => {
       this.rates = rates.rates;
       this.base = rates.base;
       this.date = rates.date;

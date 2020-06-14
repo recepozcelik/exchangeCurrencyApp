@@ -1,7 +1,7 @@
-package com.assignment.transaction.proxy;
+package com.assignment.transaction;
 
 
-import com.assignment.transaction.entity.Account;
+import com.assignment.transaction.model.Account;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,10 +15,10 @@ import static org.springframework.http.ResponseEntity.ok;
 @FeignClient(name="account-service")
 public interface AccountServiceProxy {
 
-    @RequestMapping("/accounts/{accountType}")
+    @RequestMapping("accounts/user/{accountType}")
     List<Account> findByAccountType(@PathVariable String accountType);
 
-    @RequestMapping("/accounts/{userName}")
+    @RequestMapping("accounts/{userName}")
     Optional<Account> findByUser(@PathVariable String userName);
 
     @PostMapping("/accounts")

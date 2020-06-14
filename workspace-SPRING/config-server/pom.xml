@@ -4,7 +4,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 
-	<artifactId>config-server</artifactId>
+
+	<artifactId>config</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -12,8 +13,8 @@
 	<description>Config Server</description>
 
 	<parent>
-		<groupId>ozan.challenge.workspace</groupId>
-		<artifactId>exchangeRate</artifactId>
+        <groupId>com.assignment</groupId>
+        <artifactId>exchangeRate</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
