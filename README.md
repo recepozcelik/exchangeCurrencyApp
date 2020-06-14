@@ -1,3 +1,6 @@
+Berkay Işık, Istanbul TR
+
+
 # assignmentOZAN
 
 > 
