@@ -71,7 +71,7 @@ For security, i used spring-boot-starter-security package for permitting some pa
 
 ## JAVA PROJECT
 
-After you clone project, open workspace-SPRING folder on Intellij. I added project structure figure below. you can do operation maven/install for dependency injection on parent exchangeRate project. Parent(exchangeRate) projects handle maven operation of sub modules . After maven operation is finished, then you can continue with starting spring boot applications by one by. Firstly, you should  start config-server, because other services need config server on starting proccess. Then secondly you can continue with starting eureka server...
+After you clone project, open workspace-SPRING folder on Intellij. I added project structure figure below. You can do operation maven/install for dependency injection on parent exchangeRate project. Parent(exchangeRate) projects handle maven operation of sub modules . After maven operation is finished, then you can continue with starting spring boot applications by one by. Firstly, you should  start config-server, because other services need config server on starting proccess. Then secondly you can continue with starting eureka server...
 
 ![](root-UI.png)
 
