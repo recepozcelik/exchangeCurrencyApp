@@ -3,7 +3,7 @@ Garanti BBVA Teknoloji. <br>
 Senior Full Stack Developer. <br>
 
 
-# assignmentOZAN
+# Exchange Currency App
 
 > 
 This is a demo project, which demonstrates Microservice Architecture Pattern and Single Page Application Basics  using Spring Boot, Spring Cloud ,Angular and Bootstrap. With a good and pretty user interface.
