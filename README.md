@@ -1,8 +1,3 @@
-Berkay Işık, Istanbul TR. <br>
-Garanti BBVA Teknoloji. <br>
-Senior Full Stack Developer. <br>
-
-
 # Exchange Currency App
 
 > 
@@ -95,5 +90,3 @@ After you clone this project, open workspace-SPRING folder on Intellij. I added 
  
  If port is busy on your local machine, you can change port by using --port attribute. It doesnt matter.
  
- ##  Thank you Guys, If you get an error while trying to run project, Please don't hesitate to contact me.
- ##  My mobile number : +905314561411
